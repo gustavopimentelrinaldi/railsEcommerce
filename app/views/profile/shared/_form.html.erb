@@ -1,0 +1,62 @@
+<% if @ad.errors.any? %>
+<div type="button" class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+<% @ad.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</div>
+<% end %>
+<%= form_for @ad, html: { multipart: true } do |f| %>
+<div class="col-md-6">
+    <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Título" %>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="form-group">
+        <%= f.label :Preço %>
+        <div class="input-group">
+            <div class="input-group-addon"><%= @ad.price.currency.symbol %></div>
+        <%= f.text_field :price, class: "form-control", placeholder: "Título" %>
+        </div>    
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="form-group">
+    <%= f.label :Prazo %>
+    <%= f.date_field :finish_date, class: "form-control", placeholder: "Prazo do anúncio" %>
+    </div>    
+</div>
+
+<div class="col-md-6">
+        <div class="form-group">
+        <%= f.label :Categoria %>
+        <%= f.collection_select :category_id, Category.all, :id, :description, {}, {class: "form-control"} %>
+        </div>    
+</div>
+
+<div class="col-md-12">
+    <div class="form-group">
+    <%= f.label :Imagem %><br>
+    <% if @ad.picture.present? %>
+    <%= image_tag @ad.picture.url(:thumb), class: "img-thumbnail" %><br><br>
+    <% end %>
+    <%= f.file_field :picture %>
+    </div>
+</div>
+
+<div class="col-md-12">
+        <div class="form-group">
+            <%= f.label :Descrição %>
+            <%= f.text_area :description, class: "form-control", placeholder: "Descrição", rows: 10, data: {provide: 'markdown'} %>
+        </div>
+    </div>
+
+
+<div class="col-md-12">
+    <%= submit_tag "Enviar", class: "btn btn-default" %>
+</div>
+<% end %>

@@ -1,0 +1,5 @@
+$(function(){
+ $('#recipient-name').val('<%= @admin.email %>');
+ $('.modal-title').text('Enviar para <%= @admin.name %>');
+ $('#sendEmail').modal();
+});

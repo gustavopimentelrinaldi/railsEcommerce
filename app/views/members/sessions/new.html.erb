@@ -1,0 +1,58 @@
+<style>
+  body{
+    background: #eeeeee;
+  }
+</style>
+<% if @member.errors.any? %>
+<div type="button" class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+<% @member.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</div>
+<% end %>
+  <div id="loginbox" style="margin-top:150px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+      <div class="panel panel-default" >
+          <div class="panel-heading">
+              <div class="panel-title">Entrar</div>
+          </div>     
+          <div style="padding-top:30px" class="panel-body" >
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+                  </div>
+
+                  <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: "Senha" %>
+                  </div>
+                            
+                  <% if devise_mapping.rememberable? -%>
+                    <div class="field form-group">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                  <% end -%>
+
+                  <div class="actions form-group pull-right">
+                    <%= f.submit "Entrar", class: "btn btn-success" %>
+                  </div>
+                  <div class="form-group">
+                      <%= render "members/shared/links" %>
+                  </div>
+              <% end %>
+
+          </div>                     
+    </div>  
+  </div>
+
+  <% flash.each do |key, value| %>
+  
+  <script>
+      $.notify("<%= value %>", "info");
+  </script>
+  
+  <% end %>
+ 
