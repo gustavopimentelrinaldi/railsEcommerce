@@ -1,24 +1,15 @@
-# README
+# Dependências da App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* ImageMagick
 
-Things you may want to cover:
+```
+sudo apt-get install imagemagick libmagickwand-dev
+```
 
-* Ruby version
+* Graphviz
 
-* System dependencies
+```
+sudo apt-get install graphviz
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rode o bundle install e suba o servidor.
