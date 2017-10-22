@@ -21,7 +21,7 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 #devise para fazer autenticacao
 gem 'devise'
-#enum help
+#enum helps
 gem 'enum_help'
 # Assets / Bootstrap, Jquery etc
 source 'https://rails-assets.org' do
