@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'site#home'
   get 'backoffice', to: 'backoffice#home'
-
+  get 'search', to: 'search#ads'
   get 'ads/index'
   get 'profile/dashboard'
   resources :ads, only: [:edit, :update, :new, :create]
