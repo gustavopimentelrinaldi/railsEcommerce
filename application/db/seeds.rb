@@ -77,6 +77,18 @@ puts "Categorias cadastradas com sucesso..."
 
     ###########################
 
+    puts "Cadastrando comentário Fake..."
+    Ad.all.each do |ad|
+        (Random.rand(3)).times do
+            Comment.create!(
+            body: Faker::Lorem.paragraph([1,2,3].sample),
+            member: Member.all.sample,
+            ad: ad
+            )
+        end
+    end
+    puts "Comentários Cadastrados com sucesso!!!!"
+
     
 
     

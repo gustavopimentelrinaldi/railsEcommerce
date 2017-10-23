@@ -25,24 +25,26 @@ gem 'devise'
 gem 'enum_help'
 # Assets / Bootstrap, Jquery etc
 source 'https://rails-assets.org' do
-gem 'rails-assets-bootstrap', '3.3.7'
-gem 'rails-assets-bootstrap.growl'
-gem 'rails-assets-animate-css'
-gem 'rails-assets-bootstrap-markdown'
-gem 'rails-assets-marked'
+gem 'rails-assets-bootstrap', '3.3.7' #
+gem 'rails-assets-bootstrap.growl' # BS notify
+gem 'rails-assets-animate-css' # animação para BS notify
+gem 'rails-assets-bootstrap-markdown' #
+gem 'rails-assets-marked' # Markup simples para renderizar HTML
 end
-gem 'jquery-rails'
-gem 'popper_js'
-gem 'bootstrap_sb_admin_base_v2'
-gem "font-awesome-rails"
-gem 'pundit'
-gem 'money-rails'
-gem 'paperclip', '~> 5.0.0'
-gem 'lerolero_generator'
-gem 'friendly_id'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-# Use CoffeeScript for .coffee assets and views
+gem 'jquery-rails' #
+gem 'popper_js' #
+gem 'bootstrap_sb_admin_base_v2' # template administrativo
+gem "font-awesome-rails" # font
+gem 'pundit' #
+gem 'money-rails' # coerção de moeda
+gem 'paperclip', '~> 5.0.0' # attachment para imagem
+gem 'lerolero_generator' # gerador de texto etc.
+gem 'friendly_id' # url amigável.
+gem 'ratyrate'
+gem 'kaminari' # paginate
+gem 'kaminari-i18n'
+###################################
+
 gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'

@@ -1,6 +1,7 @@
 class Ad < ApplicationRecord
   belongs_to :member
   belongs_to :category, counter_cache: true
+  has_many :comments
 
   #validates
   validates :title, :description, :category, :price, :finish_date, presence: true
@@ -9,8 +10,9 @@ class Ad < ApplicationRecord
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   
 
-  scope :descending_order, -> { limit(9).order(created_at: :desc) }
-  scope :by_category, ->(id) { where(category: id) }
+  scope :descending_order, -> (page) { order(created_at: :desc ).page(page).per(6) }
+  scope :by_category, ->(id, page) { where(category: id).page(page).per(6) }
+  scope :search, -> (term, page) { where("lower(title) LIKE ?", "%#{term.downcase}%") }
   #gem money-rails
   monetize :price_cents
 end

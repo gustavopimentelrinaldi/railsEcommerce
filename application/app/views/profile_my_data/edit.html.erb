@@ -1,0 +1,35 @@
+<% if @profile_member.errors.any? %>
+<div type="button" class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+<% @profile_member.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</div>
+<% end %>
+<%= form_for @profile_member, url: profile_my_datum_path(@profile_member), html: { multipart: true } do |f| %>
+<div class="col-md-6">
+    <div class="form-group">
+    <%= f.label :Nome %>
+    <%= f.text_field :first_name, class: "form-control", placeholder: "Título" %>
+    </div>
+</div>
+
+<div class="col-md-6">
+        <div class="form-group">
+        <%= f.label :Sobrenome %>
+        <%= f.text_field :second_name, class: "form-control", placeholder: "Título" %>
+        </div>
+    </div>
+
+<div class="col-md-12">
+        <div class="form-group">
+            <%= f.label :Aniversário %>
+            <%= f.date_field :birthdate, class: "form-control", placeholder: "Descrição", rows: 10, data: {provide: 'markdown'} %>
+        </div>
+    </div>
+
+
+<div class="col-md-12">
+    <%= submit_tag "Enviar", class: "btn btn-default" %>
+</div>
+<% end %>
