@@ -11,8 +11,8 @@ class Ad < ApplicationRecord
   
 
   scope :descending_order, -> (page) { order(created_at: :desc ).page(page).per(6) }
+  scope :search, -> (term, page) { where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(6) }
   scope :by_category, ->(id, page) { where(category: id).page(page).per(6) }
-  scope :search, -> (term, page) { where("lower(title) LIKE ?", "%#{term.downcase}%") }
   #gem money-rails
   monetize :price_cents
 end
