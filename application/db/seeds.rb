@@ -26,27 +26,32 @@ categories = [
 
 puts "Categorias cadastradas com sucesso..."
 
-=begin 
   puts "Cadastrando Membros..."
     100.times do
-    Member.create!(
+    member = Member.new(
               email: Faker::Internet.email, 
               password: "1234",
               password_confirmation: "1234"
                 )
+            member.build_profile_member
+            member.profile_member.first_name = Faker::Name.first_name
+            member.profile_member.second_name = Faker::Name.last_name
+            member.save!
     end
     puts "Membros Cadastrados com sucesso!!!!"
-
-=end
 
     #########################
 
     puts "Cadastrando membro padrão..."
-    Member.create!(
+    member = Member.new(
               email: "member@member.com", 
               password: "member",
               password_confirmation: "member"
                 )
+            member.build_profile_member
+            member.profile_member.first_name = Faker::Name.first_name
+            member.profile_member.second_name = Faker::Name.last_name
+            member.save!
     puts "Membro padrão cadastrado com sucesso!!!!"
 
     #########################
