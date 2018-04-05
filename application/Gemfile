@@ -38,7 +38,7 @@ gem 'bootstrap_sb_admin_base_v2' # template administrativo
 gem "font-awesome-rails" # font
 gem 'pundit' #
 gem 'money-rails' # coerção de moeda
-gem 'paperclip', '~> 5.0.0' # attachment para imagem
+gem 'paperclip', '~> 5.2.0' # attachment para imagem
 gem 'lerolero_generator' # gerador de texto etc.
 gem 'friendly_id' # url amigável.
 gem 'ratyrate'
