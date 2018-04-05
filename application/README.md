@@ -12,6 +12,6 @@ sudo apt-get install imagemagick libmagickwand-dev
 sudo apt-get install graphviz
 ```
 
-Rode o bundle install e suba o servidor.
+Run bundle install, then server!
 
 **USE RUBY 2.4.4**
