@@ -44,7 +44,7 @@ puts "Categorias cadastradas com sucesso..."
 
     puts "Cadastrando membro padrão..."
     member = Member.new(
-              email: "member@member.com", 
+              email: "member33@member.com", 
               password: "member",
               password_confirmation: "member"
                 )
@@ -59,7 +59,7 @@ puts "Categorias cadastradas com sucesso..."
     puts "Cadastrando Admin padrão..."
     Admin.create!(
               name: "Administrador Geral",
-              email: "admin@admin.com", 
+              email: "admin22@admin.com", 
               password: "admin",
               password_confirmation: "admin",
               role: 0
