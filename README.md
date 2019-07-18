@@ -1,3 +1,3 @@
-# ProjectRailsEcommerce
+# RailsEcommerceProject
 
-source da App na pasta Application!!!
+[Readme here.][application/README.md]
